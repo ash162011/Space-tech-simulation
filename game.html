@@ -1,0 +1,86 @@
+<html> 
+    <head> 
+        <title> Game</title>
+        <style> 
+            body {
+                background-image:url(Space.gif);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+            #myCanvas
+        {
+            background-image:url(stars.gif);
+            border-width:10px; 
+            border-style:ridge;
+            bottom: 50%;
+        }
+            </style>
+    </head>
+    <body>
+        <center>
+        <canvas id="myCanvas" width="800" height="600">
+        </canvas>
+       </center>
+
+        <script> 
+        canvas = document.getElementById('myCanvas');
+        ctx = canvas.getContext("2d");
+        rocket_width = 500;
+        rocket_height = 250;
+        rocket_img = "Rocket-removebg-preview (1).png"
+        rocket_x = 30;
+        rocket_y = 295;
+
+        window.addEventListener("keydown", my_keydown);
+
+function my_keydown(e) {
+    keypressed = e.keyCode;
+    console.log(keypressed);
+    if (keypressed == '38')
+    {
+        up();
+        console.log("up");
+    }
+
+    else if (keypressed == '40')
+    {
+        down();
+        console.log("down");
+    }
+
+    else if (keypressed == '37')
+    {
+        left();
+        console.log("left");
+    }
+
+    else if (keypressed == '39')
+    {
+        right();
+        console.log("right");
+    }
+}
+
+function up() {
+    if(rover_y >=0){
+        rover_y = rover_y-10;
+    }
+}
+
+function down() {
+    if(rover_y <=500){
+        rover_y = rover_y+10;
+    }
+}
+
+function left() {
+    if(rover_x >=0){
+        rover_x = rover_x-10;
+    }
+}
+
+function right() {
+    if(rover_x <=700){
+        rover_x = rover_x+10;
+    }
+}
